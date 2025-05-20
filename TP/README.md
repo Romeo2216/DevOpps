@@ -6,3 +6,6 @@ Il est préférable d’utiliser le drapeau `-e` lors de l’exécution du conte
 
 Nous avons besoin d’un volume attaché au conteneur Postgres afin de persister les données de la base de données en dehors du cycle de vie du conteneur. Sans volume, toutes les données seraient perdues à chaque suppression ou recréation du conteneur. Le volume permet donc de conserver les données même si le conteneur est arrêté, supprimé ou mis à jour.
 
+1-6 Why is docker-compose so important?
+
+Docker-compose est important car il permet de définir, configurer et gérer facilement des applications multi-conteneurs à l’aide d’un simple fichier YAML. Il simplifie l’orchestration, l’automatisation du déploiement, la gestion des réseaux et des volumes, et facilite la reproduction de l’environnement de développement ou de production. Cela rend la gestion de projets complexes plus efficace et moins sujette aux erreurs.
