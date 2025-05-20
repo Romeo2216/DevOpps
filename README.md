@@ -9,3 +9,8 @@ Nous avons besoin d’un volume attaché au conteneur Postgres afin de persister
 1-6 Why is docker-compose so important?
 
 Docker-compose est important car il permet de définir, configurer et gérer facilement des applications multi-conteneurs à l’aide d’un simple fichier YAML. Il simplifie l’orchestration, l’automatisation du déploiement, la gestion des réseaux et des volumes, et facilite la reproduction de l’environnement de développement ou de production. Cela rend la gestion de projets complexes plus efficace et moins sujette aux erreurs.
+
+2-1 What are testcontainers?
+
+Testcontainers is a Java library that allows you to run lightweight, throwaway containers (usually Docker containers) for your integration tests. It helps you create reliable and reproducible test environments by spinning up real instances of databases, message brokers, or other services your application depends on, all within Docker containers.
+
