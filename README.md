@@ -24,4 +24,4 @@ We use `needs: build-and-test-backend` in a GitHub Actions workflow to specify t
 
 2-4 For what purpose do we need to push docker images?
 
-We need to push Docker images to a remote registry (like Docker Hub or GitHub Container Registry) so that they can be easily shared, deployed, and used by others or by automated systems (such as CI/CD pipelines or production servers). Pushing images ensures that the exact environment and application code are available wherever needed, enabling consistent deployments and easier scaling.
+We need to push Docker images to a remote registry (like Docker Hub or GitHub Container Registry) so that they can be easily shared, deployed, and used by others or by automated systems (such as CI/CD pipelines or production servers). Pushing images ensures that the exact environment and application code are available wherever needed, enabling consistent deployments and easier scaling.    
