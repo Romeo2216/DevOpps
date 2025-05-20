@@ -29,7 +29,6 @@ jobs:
     needs: test-backend
 
     runs-on: ubuntu-24.04
-    needs: test-backend
     steps:
       - name: SonarCloud Quality Gate Check
         run: mvn -B verify sonar:sonar -Dsonar.projectKey=devop2216_devop -Dsonar.organization=devop2216 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file .\simpleapi\pom.xml
