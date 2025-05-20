@@ -26,16 +26,18 @@ jobs:
         run: mvn clean verify --file simpleapi/pom.xml
         
   quality-gate:
+    needs: test-backend
+
     runs-on: ubuntu-24.04
     needs: test-backend
     steps:
       - name: SonarCloud Quality Gate Check
-        run: mvn -B verify sonar:sonar -Dsonar.projectKey=devop2216_devop -Dsonar.organization=devop2216 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file pom.xml 
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=devop2216_devop -Dsonar.organization=devop2216 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file .\simpleapi\pom.xml
 
 
   # define job to build and publish docker image
   build-and-push-docker-image:
-    needs: test-backend
+    needs: quality-gate
     # run only when code is compiling and tests are passing
     runs-on: ubuntu-24.04
 
