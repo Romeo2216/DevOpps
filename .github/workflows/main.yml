@@ -53,7 +53,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./BDD
-          file: ./database/Dockerfile
+          file: ./BDD/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/devopps-database:latest
 
