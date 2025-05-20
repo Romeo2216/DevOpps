@@ -1,0 +1,44 @@
+services:
+  database:
+    build: ./BDD
+    env_file:
+      - .env
+    volumes:
+      - ./BDD/Volume:/var/lib/postgresql/data
+    networks:
+      - db-network
+    restart: unless-stopped
+
+  backend:
+    build: ./simpleapi
+    env_file:
+      - .env
+    depends_on:
+      - database
+    container_name: backend
+    networks:
+      - db-network
+      - front-network
+    restart: on-failure:3
+
+  httpd:
+    build: ./HTTP
+    env_file:
+      - .env
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    networks:
+      - front-network
+    restart: on-failure:3
+
+networks:
+  db-network:
+    driver: bridge
+  front-network:
+    driver: bridge
+
+volumes:
+  db-data:
+    driver: local
