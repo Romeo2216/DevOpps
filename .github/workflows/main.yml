@@ -47,7 +47,7 @@ jobs:
         with:
           context: ./simple-api
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/devops-backend:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/devops-backend:latest
 
       - name: Build image and push database
         uses: docker/build-push-action@v6
@@ -55,14 +55,14 @@ jobs:
           context: ./database
           file: ./database/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/devops-database:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/devops-database:latest
 
       - name: Build image and push httpd
         uses: docker/build-push-action@v6
         with:
           context: ./http-server
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/devops-httpd:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/devops-httpd:latest
 
 
 
