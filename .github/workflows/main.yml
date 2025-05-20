@@ -23,26 +23,20 @@ jobs:
 
       # Build and test with Maven
       - name: Build and test with Maven
-        run: mvn clean verify --file pom.xml
+        run: mvn clean verify --file simpleapi/pom.xml
         
-  quality-gate:
-    needs: test-backend
-
-    runs-on: ubuntu-24.04
-    steps:
       - name: Build and test with Maven + SonarCloud
         run: |
           mvn -B verify sonar:sonar \
-            -Dsonar.projectKey=devop2216_devop \
-            -Dsonar.organization=devop2216 \
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT }} \
+            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }} \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
-            --file pom.xml
-
-
+            --file ./simple-api/pom.xml
+  
   # define job to build and publish docker image
   build-and-push-docker-image:
-    needs: quality-gate
+    needs: test-backend
     # run only when code is compiling and tests are passing
     runs-on: ubuntu-24.04
 
@@ -60,7 +54,7 @@ jobs:
       - name: Build image and push backend
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: ./simpleapi
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/devops-backend:latest
           push: ${{ github.ref == 'refs/heads/main' }}
 
