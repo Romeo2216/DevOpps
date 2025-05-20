@@ -52,17 +52,17 @@ jobs:
       - name: Build image and push database
         uses: docker/build-push-action@v6
         with:
-          context: ./database
+          context: ./BDD
           file: ./database/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/devops-database:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/devopps-database:latest
 
       - name: Build image and push httpd
         uses: docker/build-push-action@v6
         with:
-          context: ./http-server
+          context: ./HTTP
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/devops-httpd:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/devopps-httpd:latest
 
 
 
