@@ -4,5 +4,5 @@
 
 - name: Copier le fichier .env
   copy:
-    src: files/.env
+    src: /.env
     dest: .env
