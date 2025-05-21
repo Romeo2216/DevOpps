@@ -34,7 +34,7 @@ jobs:
       
       - name: Create .env file from secret
         run: |
-          echo "${{ secrets.ENV_CONTENT }}" > ansible\env\tasks\files\.env
+          echo "${{ secrets.ENV_CONTENT }}" > .env
           
       - name: Run Ansible Playbook
         env:
