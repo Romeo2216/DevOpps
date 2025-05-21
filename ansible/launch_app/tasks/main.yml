@@ -1,0 +1,15 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for roles/launch_app
+
+- name: Deploy backend container
+  docker_container:
+    name: backend
+    image: romeo2296/devops-backend:latest 
+    env_file: .env
+    networks:
+      - name: db-network
+      - name: front-network
+    restart_policy: on-failure
+    restart_retries: 3
+

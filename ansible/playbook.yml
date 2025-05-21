@@ -1,0 +1,13 @@
+- name: Déploiement complet de l'application
+  hosts: all
+  become: true
+  vars:
+    ansible_python_interpreter: /opt/docker_venv/bin/python
+
+  roles:
+    - docker
+    - env
+    - network
+    - launch_db
+    - launch_app
+    - launch_proxy
