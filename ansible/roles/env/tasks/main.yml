@@ -2,7 +2,7 @@
 ---
 # tasks file for roles/env
 
-- name: Copier leeeeeeeeeeeeeee fichier .env
+- name: Copier le fichier .env
   copy:
-    src: files/.env
+    src: /files/.env
     dest: .env
