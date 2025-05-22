@@ -6,6 +6,7 @@
   docker_container:
     name: httpd
     image: romeo2296/devopps-httpd:latest
+    pull: yes
     env:
     ports:
       - "80:80"

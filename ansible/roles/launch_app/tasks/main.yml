@@ -5,7 +5,8 @@
 - name: Deploy backend container
   docker_container:
     name: backend
-    image: romeo2296/devops-backend:latest 
+    image: romeo2296/devops-backend:latest
+    pull: yes 
     env_file: .env
     networks:
       - name: db-network

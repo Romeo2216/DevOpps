@@ -6,6 +6,7 @@
   docker_container:
     name: database
     image: romeo2296/devopps-database:latest
+    pull: yes
     env_file: .env
     volumes:
       - ./BDD/Volume:/var/lib/postgresql/data
