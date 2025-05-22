@@ -2,7 +2,7 @@ name: Deploy to Server
 
 on:
   workflow_run:
-    workflows: ["CI devops 2025"]
+    workflows: ["Build and Push Docker Image"]
     branches:
       - main
     types:
