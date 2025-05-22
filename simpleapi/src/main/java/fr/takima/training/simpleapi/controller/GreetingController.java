@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicLong;
 @CrossOrigin
 public class GreetingController {
 
-    private static final String TEMPLATE = "Hellooooooooooooo, %s!";
+    private static final String TEMPLATE = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
     @GetMapping
